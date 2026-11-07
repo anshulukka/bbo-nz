@@ -2,458 +2,619 @@
 <html lang="en-NZ">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex">
-<title>Brokers BackOffice New Zealand — Coming Soon</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loan Processing &amp; Adviser Support for NZ Mortgage Advisers | Brokers' BackOffice</title>
+<meta name="description" content="Brokers' BackOffice supports New Zealand mortgage advisers with loan processing, admin and paraplanning. Auckland office, NZ-hours cover, no lock-in contracts. Book a free call.">
+<meta property="og:title" content="Back-office support for New Zealand mortgage advisers">
+<meta property="og:description" content="Hand off loan processing and admin. Spend your time with clients. Auckland office, NZ-hours cover.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#032457">
+<link rel="icon" href="img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ── Tokens: Brokers' BackOffice brand kit — amber #ffb051, purple #4b10a5, light #f0f0f0, blue #365d96, navy #032457, dark #212529 ── */
+:root{
+  --navy:#032457; --navy-mid:#365D96; --navy-soft:#E9EFF7;
+  --blue:#365D96; --orange:#FFB051; --orange-dk:#F29A2E; --orange-lt:#FFF4E0;
+  --purple:#4B10A5; --purple-lt:#F1EAFB; --on-accent:#032457;
+  --green:#059669; --red:#DC2626;
+  --bg:#fff; --bg-alt:#F7F7F7; --text:#212529; --muted:#5A6678; --border:#E3E6EA;
+  --sh-sm:0 2px 12px rgba(3,36,87,.08); --sh-md:0 8px 32px rgba(3,36,87,.10); --sh-lg:0 24px 64px rgba(3,36,87,.16);
+  --r:16px; --r-sm:10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Poppins',system-ui,sans-serif;font-size:16px;line-height:1.65;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:700;line-height:1.15;letter-spacing:-.02em;text-wrap:balance}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:24px}
+.section{padding-block:88px}
+.alt{background:var(--bg-alt)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font:700 12px 'Poppins',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.eyebrow::before{content:'';width:16px;height:2px;background:var(--blue);border-radius:1px}
+.sec-head{max-width:640px;margin-bottom:48px}
+.sec-head.center{margin-inline:auto;text-align:center}
+.sec-head.center .eyebrow{justify-content:center}
+.sec-head h2{font-size:clamp(28px,3.6vw,42px);margin-bottom:14px}
+.sec-head p{color:var(--muted);font-size:17px}
+.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;background:#fff;padding:8px 14px;border-radius:8px;z-index:999}
 
-  :root {
-    --navy: #1a2744;
-    --navy-light: #243260;
-    --gold: #c8973a;
-    --gold-light: #e0b060;
-    --white: #ffffff;
-    --off-white: #f8f9fb;
-    --text-muted: #8a95a8;
-    --border: #e2e8f0;
-  }
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border:0;border-radius:var(--r-sm);font:600 15px 'Poppins',sans-serif;cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s;white-space:nowrap}
+.btn-primary{background:linear-gradient(135deg,var(--orange),var(--orange-dk));color:var(--on-accent);box-shadow:0 4px 20px rgba(255,176,81,.28)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,176,81,.38)}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.25)}
+.btn-ghost:hover{background:rgba(255,255,255,.18)}
+.btn-sm{padding:10px 20px;font-size:13.5px}
+.btn:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid rgba(54,93,150,.55);outline-offset:2px}
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--off-white);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+/* ── Nav ── */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;gap:20px;height:70px}
+.brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+.logo{height:46px;width:auto;display:block}
+.nz-tag{font:600 10px 'Poppins',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);border-left:1.5px solid var(--border);padding-left:12px;line-height:1.3}
+footer .logo{height:54px}
+.nav-phone{display:flex;align-items:center;gap:8px;font:600 14px 'Poppins',sans-serif;color:var(--navy)}
+.nav-phone svg{width:16px;height:16px;color:var(--purple)}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none;margin-right:8px}
+.nav-links a{display:block;padding:8px 13px;border-radius:8px;font:500 14px 'Poppins',sans-serif;color:var(--muted);transition:color .15s,background .15s}
+.nav-links a:hover{color:var(--navy);background:var(--bg-alt)}
+.nav-links a.active{color:var(--navy);font-weight:600;background:var(--navy-soft)}
+.burger{display:none;width:42px;height:42px;border:1.5px solid var(--border);border-radius:10px;background:#fff;color:var(--navy);cursor:pointer;align-items:center;justify-content:center}
+.burger svg{width:20px;height:20px}
+.burger .x{display:none}
+.nav.open .burger .bars{display:none}
+.nav.open .burger .x{display:block}
 
-  /* NAV */
-  nav {
-    background: var(--navy);
-    padding: 0 2rem;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+/* ── Hero ── */
+.hero{background:linear-gradient(150deg,#032457 0%,#0F3069 55%,#365D96 100%);color:#fff;position:relative;overflow:hidden;padding-block:80px 96px}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(54,93,150,.14) 1px,transparent 1px);background-size:28px 28px}
+.hero::after{content:'';position:absolute;right:-160px;top:-160px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,176,81,.22),transparent 65%)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;position:relative;z-index:1}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px 6px 8px;border-radius:100px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font:600 12.5px 'Poppins',sans-serif;margin-bottom:24px}
+.pill i{font-style:normal;width:22px;height:22px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:12px}
+.hero h1{font-size:clamp(34px,4.6vw,56px);font-weight:700;letter-spacing:-.03em;margin-bottom:20px;color:#fff}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,#FFB051,var(--orange));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p.lead{font-size:18px;color:rgba(255,255,255,.75);max-width:520px;margin-bottom:30px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
+.ticks{list-style:none;display:grid;gap:10px}
+.ticks li{display:flex;align-items:flex-start;gap:10px;color:rgba(255,255,255,.85);font-size:15px}
+.ticks svg{flex-shrink:0;width:20px;height:20px;color:#34D399;margin-top:2px}
 
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
+/* ── Form card ── */
+.form-card{background:#fff;color:var(--text);border-radius:24px;padding:32px;box-shadow:var(--sh-lg)}
+.form-card h2{font-size:22px;margin-bottom:6px}
+.form-card .sub{color:var(--muted);font-size:14px;margin-bottom:22px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:14px}
+.field label{display:block;font:600 12.5px 'Poppins',sans-serif;margin-bottom:6px}
+.field label span{color:var(--purple)}
+.field input,.field select,.field textarea{width:100%;font:400 15px 'Poppins',sans-serif;color:var(--text);background:#fff;border:1.5px solid var(--border);border-radius:var(--r-sm);padding:11px 14px;transition:border-color .15s,box-shadow .15s}
+.field textarea{min-height:92px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(54,93,150,.13);outline:0}
+.field.err input,.field.err select{border-color:var(--red)}
+.field .msg{display:none;color:var(--red);font-size:12.5px;margin-top:4px}
+.field.err .msg{display:block}
+.hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+.form-card .btn{width:100%}
+.fine{font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+.form-status{display:none;margin-top:14px;padding:12px 14px;border-radius:var(--r-sm);font-size:14px}
+.form-status.error{display:block;background:#FEF2F2;color:#991B1B;border:1px solid #FECACA}
+.success{display:none;text-align:center;padding:24px 8px}
+.success .tick{width:56px;height:56px;border-radius:50%;background:#ECFDF5;color:var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.success .tick svg{width:28px;height:28px}
+.success h3{font-size:22px;margin-bottom:8px}
+.success p{color:var(--muted)}
 
-  .logo-mark {
-    width: 36px;
-    height: 36px;
-    background: var(--gold);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 14px;
-    color: var(--navy);
-    letter-spacing: -0.5px;
-  }
+/* ── Trust strip ── */
+.strip{background:#fff;border-bottom:1px solid var(--border)}
+.strip-in{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{padding:30px 20px;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font:700 34px/1 'Poppins',sans-serif;color:var(--navy);letter-spacing:-.03em}
+.stat b em{font-style:normal;color:var(--purple)}
+.stat span{font-size:13.5px;color:var(--muted)}
 
-  .logo-text {
-    color: var(--white);
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.2;
-  }
+/* ── Cards ── */
+.grid{display:grid;gap:22px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:box-shadow .2s,transform .2s}
+.card:hover{box-shadow:var(--sh-md);transform:translateY(-3px)}
+.ico{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;background:var(--purple-lt);color:var(--purple)}
+.ico.b{background:#E9EFF7;color:var(--blue)}.ico.g{background:#ECFDF5;color:var(--green)}
+.ico svg{width:24px;height:24px}
+.card h3{font-size:17px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14.5px}
 
-  .logo-text span {
-    display: block;
-    font-size: 10px;
-    font-weight: 400;
-    color: var(--gold-light);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
+/* ── Steps ── */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.step{position:relative;padding:30px 26px 26px;background:#fff;border:1px solid var(--border);border-radius:var(--r)}
+.step::before{counter-increment:s;content:counter(s);position:absolute;top:-18px;left:24px;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange-dk));color:var(--on-accent);font:700 15px 'Poppins',sans-serif;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(255,176,81,.35)}
+.step h3{font-size:18px;margin-bottom:8px}
+.step p{color:var(--muted);font-size:14.5px}
 
-  .nav-flag {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--text-muted);
-    font-size: 13px;
-  }
+/* ── Time-zone band ── */
+.tz{background:linear-gradient(135deg,var(--navy),#0F3069);color:#fff;border-radius:28px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;overflow:hidden}
+.tz::after{content:'';position:absolute;right:-100px;bottom:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(255,176,81,.25),transparent 65%)}
+.tz h2{font-size:clamp(26px,3.2vw,38px);color:#fff;margin-bottom:14px}
+.tz p{color:rgba(255,255,255,.72)}
+.tl{position:relative;z-index:1;display:grid;gap:12px}
+.tl div{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-sm);padding:14px 18px;font-size:14.5px}
+.tl b{font:700 13px 'Poppins',sans-serif;color:#FFC47A;min-width:96px}
 
-  /* HERO */
-  .hero {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, #1e3a5f 100%);
-    position: relative;
-    overflow: hidden;
-  }
+/* ── Office ── */
+.office{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}
+.office-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:34px}
+.office-card h3{font-size:22px;margin-bottom:6px}
+.office-card .tag{display:inline-block;font:600 11px 'Poppins',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--purple);margin-bottom:14px}
+.contact-list{list-style:none;display:grid;gap:18px;margin-top:22px}
+.contact-list li{display:flex;gap:14px;align-items:flex-start}
+.contact-list .ci{width:42px;height:42px;flex-shrink:0;border-radius:12px;background:var(--navy-soft);color:var(--navy-mid);display:flex;align-items:center;justify-content:center}
+.contact-list .ci svg{width:20px;height:20px}
+.contact-list small{display:block;font:600 11.5px 'Poppins',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.contact-list address{font-style:normal}
+.contact-list a{font-weight:600}
+.contact-list a:hover{color:var(--purple)}
+.map{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);min-height:320px;background:var(--navy-soft)}
+.map iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -80px;
-    right: -80px;
-    width: 400px;
-    height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(200,151,58,0.12) 0%, transparent 70%);
-  }
+/* ── FAQ ── */
+.faq{max-width:780px;margin-inline:auto;display:grid;gap:12px}
+.faq details{background:#fff;border:1px solid var(--border);border-radius:var(--r-sm);padding:0 22px}
+.faq summary{list-style:none;cursor:pointer;padding:18px 0;font:600 16px 'Poppins',sans-serif;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-size:22px;color:var(--purple);line-height:1;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding-bottom:18px;font-size:15px}
 
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -60px;
-    left: -60px;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(200,151,58,0.08) 0%, transparent 70%);
-  }
+/* ── CTA + footer ── */
+.cta{background:linear-gradient(135deg,var(--navy) 0%,#0F3069 60%,var(--navy-mid) 100%);color:#fff;text-align:center;padding-block:88px;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:30px 30px}
+.cta .wrap{position:relative}
+.cta h2{font-size:clamp(28px,4vw,44px);color:#fff;margin-bottom:14px}
+.cta p{color:rgba(255,255,255,.7);font-size:18px;margin-bottom:32px}
+.cta .row-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+footer{background:#021739;color:rgba(255,255,255,.6);padding-block:44px;font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+.foot a:hover{color:#fff}
+.foot address{font-style:normal;line-height:1.7}
+.foot-menu h4{font:700 12px 'Poppins',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:14px}
+.foot-menu ul{list-style:none;display:grid;grid-template-columns:repeat(2,auto);gap:8px 36px}
+.foot-menu a{color:rgba(255,255,255,.6)}
+.foot-menu a:hover{color:var(--orange)}
+.copy{border-top:1px solid rgba(255,255,255,.08);margin-top:28px;padding-top:20px;font-size:12.5px;color:rgba(255,255,255,.4)}
 
-  .hero-content {
-    text-align: center;
-    max-width: 640px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .nz-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(200,151,58,0.15);
-    border: 1px solid rgba(200,151,58,0.3);
-    border-radius: 100px;
-    padding: 6px 16px;
-    color: var(--gold-light);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-  }
-
-  .nz-flag-emoji {
-    font-size: 16px;
-  }
-
-  h1 {
-    color: var(--white);
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 700;
-    line-height: 1.15;
-    margin-bottom: 1.25rem;
-  }
-
-  h1 em {
-    font-style: normal;
-    color: var(--gold);
-  }
-
-  .hero-sub {
-    color: rgba(255,255,255,0.65);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .cta-row {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    background: var(--gold);
-    color: var(--navy);
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
-  .btn-primary:hover { background: var(--gold-light); }
-
-  .btn-secondary {
-    background: transparent;
-    color: var(--white);
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 14px;
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.3);
-    transition: border-color 0.2s;
-  }
-
-  .btn-secondary:hover { border-color: rgba(255,255,255,0.6); }
-
-  /* CARDS */
-  .cards-section {
-    background: var(--off-white);
-    padding: 4rem 2rem;
-  }
-
-  .cards-inner {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-  }
-
-  .section-title {
-    text-align: center;
-    color: var(--navy);
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 2.5rem;
-  }
-
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .card {
-    background: var(--white);
-    border-radius: 12px;
-    padding: 1.75rem;
-    border: 1px solid var(--border);
-  }
-
-  .card-icon {
-    width: 44px;
-    height: 44px;
-    background: rgba(26,39,68,0.06);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    font-size: 20px;
-  }
-
-  .card h3 {
-    color: var(--navy);
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .card p {
-    color: var(--text-muted);
-    font-size: 13.5px;
-    line-height: 1.6;
-  }
-
-  /* PRICING PREVIEW */
-  .pricing-section {
-    background: var(--white);
-    padding: 4rem 2rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .pricing-inner {
-    max-width: 640px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .pricing-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
-
-  .price-card {
-    background: var(--off-white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: left;
-  }
-
-  .price-card.featured {
-    background: var(--navy);
-    border-color: var(--navy);
-  }
-
-  .price-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 0.5rem;
-  }
-
-  .price-card.featured .price-label { color: var(--gold-light); }
-
-  .price-amount {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1;
-  }
-
-  .price-card.featured .price-amount { color: var(--white); }
-
-  .price-currency {
-    font-size: 14px;
-    font-weight: 500;
-    vertical-align: super;
-    margin-right: 2px;
-  }
-
-  .price-desc {
-    font-size: 12.5px;
-    color: var(--text-muted);
-    margin-top: 0.5rem;
-    line-height: 1.5;
-  }
-
-  .price-card.featured .price-desc { color: rgba(255,255,255,0.55); }
-
-  .intro-offer {
-    margin-top: 1.5rem;
-    background: rgba(200,151,58,0.1);
-    border: 1px solid rgba(200,151,58,0.25);
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    font-size: 13px;
-    color: var(--navy);
-    line-height: 1.5;
-  }
-
-  .intro-offer strong { color: var(--gold); }
-
-  /* FOOTER */
-  footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.4);
-    text-align: center;
-    padding: 1.5rem 2rem;
-    font-size: 12px;
-  }
-
-  footer a { color: var(--gold-light); text-decoration: none; }
-
-  @media (max-width: 480px) {
-    .pricing-cards { grid-template-columns: 1fr; }
-    h1 { font-size: 1.75rem; }
-  }
+/* ── Responsive ── */
+.nav-links .mob-cta{display:none}
+@media(max-width:980px){
+  .burger{display:inline-flex}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:2px;margin:0;padding:12px 24px 20px;background:#fff;border-bottom:1px solid var(--border);box-shadow:var(--sh-md)}
+  .nav.open .nav-links{display:flex}
+  .nav-links a{padding:13px 14px;font-size:16px}
+  .nav-links .mob-cta{display:inline-flex;margin-top:8px;color:var(--on-accent);background:linear-gradient(135deg,var(--orange),var(--orange-dk))}
+  .nav-links .mob-cta:hover{color:var(--on-accent);background:linear-gradient(135deg,var(--orange),var(--orange-dk))}
+  .hero-grid,.tz,.office{grid-template-columns:1fr}
+  .g3,.steps{grid-template-columns:1fr 1fr}
+  .g4{grid-template-columns:1fr 1fr}
+  .strip-in{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--border)}
+  .section{padding-block:68px}
+}
+@media(max-width:640px){
+  .nav-phone span{display:none}
+  .g3,.g4,.steps,.row{grid-template-columns:1fr}
+  .hero{padding-block:48px 64px}
+  .form-card{padding:24px 20px;border-radius:20px}
+  .tz{padding:32px 22px}
+  .section{padding-block:56px}
+  .btn{white-space:normal}
+  .nav .btn{white-space:nowrap;padding:10px 14px}
+  .nav-cta{display:none}
+  .foot-menu ul{grid-template-columns:1fr 1fr}
+  .logo{height:38px}
+  .nz-tag{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
+<a class="skip" href="#contact">Skip to contact form</a>
 
-<nav>
-  <a class="nav-logo" href="https://brokersbackoffice.com">
-    <div class="logo-mark">BBO</div>
-    <div class="logo-text">
-      Brokers BackOffice
-      <span>New Zealand</span>
-    </div>
-  </a>
-  <div class="nav-flag">
-    <span>🇳🇿</span>
-    <span>NZ</span>
+<!-- ═════════ NAV ═════════ -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand" aria-label="Brokers' BackOffice New Zealand — home">
+      <img class="logo" src="img/logo.png" alt="Brokers' BackOffice" width="137" height="46">
+      <span class="nz-tag">New Zealand</span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#why">Why NZ</a>
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#office">Our office</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="mob-cta btn btn-primary btn-sm">Book a free call</a>
+    </nav>
+    <!-- TODO: confirm NZ office number before publishing -->
+    <a class="nav-phone" href="tel:0800100017" aria-label="Call us on 0800 10 00 17">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>
+      <span>0800 10 00 17</span>
+    </a>
+    <a href="#contact" class="btn btn-primary btn-sm nav-cta">Book a free call</a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg class="bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
   </div>
-</nav>
+</header>
 
+<main id="top">
+<!-- ═════════ HERO + FORM ═════════ -->
 <section class="hero">
-  <div class="hero-content">
-    <div class="nz-badge">
-      <span class="nz-flag-emoji">🇳🇿</span>
-      Now coming to New Zealand
+  <div class="wrap hero-grid">
+    <div>
+      <div class="pill"><i>🇳🇿</i> Now supporting advisers across New Zealand</div>
+      <h1>Spend your day with clients, <em>not paperwork.</em></h1>
+      <p class="lead">Brokers' BackOffice takes loan processing, admin and paraplanning off the plates of New Zealand mortgage advisers — so you can write more business without hiring more staff.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">Book a free call →</a>
+        <a href="#how" class="btn btn-ghost">See how it works</a>
+      </div>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Auckland office and NZ-hours cover</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Pay per application or a dedicated team member</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Start small — no long lock-in contracts</li>
+      </ul>
     </div>
-    <h1>Your trusted <em>back-office partner</em> for NZ mortgage advisers</h1>
-    <p class="hero-sub">
-      Brokers BackOffice is expanding to New Zealand — bringing our proven loan processing support to Kiwi mortgage advisers. Pay per file. No lock-in. Expert team.
-    </p>
-    <div class="cta-row">
-      <a href="https://brokersbackoffice.com/contact-us" class="btn-primary">Register your interest</a>
-      <a href="https://brokersbackoffice.com" class="btn-secondary">View AU site →</a>
+
+    <!-- Contact form -->
+    <div class="form-card" id="contact">
+      <div id="formBody">
+        <h2>Talk to our Auckland team</h2>
+        <p class="sub">Tell us a little about your business. We'll reply within one business day.</p>
+        <form id="nzForm" novalidate>
+          <div class="row">
+            <div class="field"><label for="fname">First name <span>*</span></label><input id="fname" name="fname" autocomplete="given-name" placeholder="Aroha" required><div class="msg">Please enter your first name.</div></div>
+            <div class="field"><label for="lname">Last name <span>*</span></label><input id="lname" name="lname" autocomplete="family-name" placeholder="Smith" required><div class="msg">Please enter your last name.</div></div>
+          </div>
+          <div class="field"><label for="email">Email <span>*</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="aroha@yourbusiness.co.nz" required><div class="msg">Please enter a valid email address.</div></div>
+          <div class="row">
+            <div class="field"><label for="phone">Mobile <span>*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="021 000 0000" required><div class="msg">Please enter a phone number.</div></div>
+            <div class="field"><label for="company">Business name</label><input id="company" name="company" autocomplete="organization" placeholder="Your advice business"></div>
+          </div>
+          <div class="field">
+            <label for="service">What do you need help with?</label>
+            <select id="service" name="service">
+              <option value="">Select one…</option>
+              <option>Loan processing (pay per application)</option>
+              <option>Dedicated loan processor</option>
+              <option>Virtual admin support</option>
+              <option>Paraplanning</option>
+              <option>Not sure yet — let's talk</option>
+            </select>
+          </div>
+          <div class="field"><label for="message">Anything we should know?</label><textarea id="message" name="message" placeholder="e.g. roughly how many applications you write each month, and what you'd like off your plate."></textarea></div>
+          <div class="hp" aria-hidden="true"><label>Leave this empty<input id="website" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <button class="btn btn-primary" id="submitBtn" type="submit">Send my enquiry</button>
+          <div class="form-status" id="formError" role="alert"></div>
+          <p class="fine">We only use your details to respond to this enquiry, in line with the NZ Privacy Act 2020.</p>
+        </form>
+      </div>
+      <div class="success" id="success" role="status" aria-live="polite">
+        <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>Thanks — we've got your message.</h3>
+        <p>Someone from our Auckland team will be in touch within one business day. Need us sooner? Call <a href="tel:0800100017"><b>0800 10 00 17</b></a>.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cards-section">
-  <div class="cards-inner">
-    <div class="section-label">Why BBO NZ</div>
-    <h2 class="section-title">Built for NZ mortgage advisers</h2>
-    <div class="cards-grid">
+<!-- ═════════ TRUST STRIP ═════════ -->
+<div class="strip">
+  <div class="wrap strip-in">
+    <div class="stat"><b>50<em>+</em></b><span>Team members</span></div>
+    <div class="stat"><b>4</b><span>Countries, one team</span></div>
+    <div class="stat"><b>10K<em>+</em></b><span>Applications processed</span></div>
+    <div class="stat"><b>98<em>%</em></b><span>Client retention</span></div>
+  </div>
+</div>
+
+<!-- ═════════ WHY NZ ═════════ -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">Built for Kiwi advisers</div>
+      <h2>Back-office support that understands how NZ lending works</h2>
+      <p>Compliance expectations, lender policy and client paperwork look different on this side of the Tasman. We work to the way New Zealand advisers actually operate.</p>
+    </div>
+    <div class="grid g3">
       <div class="card">
-        <div class="card-icon">📋</div>
-        <h3>Pay Per File</h3>
-        <p>Only pay when you lodge. No monthly retainers, no commitments — scale with your pipeline.</p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Lodgement-ready files</h3>
+        <p>Applications prepared and checked against lender requirements before they go in, so fewer come back with requests for more information.</p>
       </div>
       <div class="card">
-        <div class="card-icon">🇳🇿</div>
-        <h3>NZ-aware team</h3>
-        <p>Trained on NZ aggregator platforms, CCCFA requirements, and NZ lender workflows.</p>
+        <div class="ico b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+        <h3>Compliance-minded paperwork</h3>
+        <p>Careful file notes and documentation to support your obligations under the Financial Markets Conduct Act, Financial Advisers Act and CCCFA.</p>
       </div>
       <div class="card">
-        <div class="card-icon">⚡</div>
-        <h3>Fast turnaround</h3>
-        <p>Same-day processing on lodgements submitted before 2pm. Keep your clients moving.</p>
+        <div class="ico g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div>
+        <h3>Familiar with NZ lenders</h3>
+        <p>Experience across the major banks and non-bank lenders, and the policy points that tend to trip up applications: LVR limits, debt-to-income settings and income verification.</p>
       </div>
       <div class="card">
-        <div class="card-icon">🏆</div>
-        <h3>Proven in AU</h3>
-        <p>ISO certified. 120+ AU broker clients. 70+ team members. Now bringing it to NZ.</p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Works to NZ business hours</h3>
+        <p>Your files are handled on New Zealand time, with an Auckland contact for the questions that can't wait.</p>
+      </div>
+      <div class="card">
+        <div class="ico b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
+        <h3>Scale without hiring</h3>
+        <p>Add capacity when you're busy and ease off when you're not. No recruitment, no payroll, no desk space.</p>
+      </div>
+      <div class="card">
+        <div class="ico g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>Client data handled with care</h3>
+        <p>Documented processes and controlled access, with client information treated in line with the NZ Privacy Act 2020.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="pricing-section">
-  <div class="pricing-inner">
-    <div class="section-label">NZ Pricing</div>
-    <h2 class="section-title">Simple, transparent pricing in NZD</h2>
-    <div class="pricing-cards">
-      <div class="price-card">
-        <div class="price-label">Lodgement</div>
-        <div class="price-amount"><span class="price-currency">NZD $</span>169</div>
-        <div class="price-desc">Application preparation, CRM entry &amp; lodgement to lender.</div>
-      </div>
-      <div class="price-card featured">
-        <div class="price-label">Follow Up</div>
-        <div class="price-amount"><span class="price-currency">NZD $</span>199</div>
-        <div class="price-desc">Post-lodgement management, lender follow-up &amp; settlement support.</div>
-      </div>
+<!-- ═════════ SERVICES ═════════ -->
+<section class="section alt" id="services">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">What we do</div>
+      <h2>Pick the support that fits your business</h2>
+      <p>Start with a single application, or build a dedicated team around you. You choose.</p>
     </div>
-    <div class="intro-offer">
-      🎉 <strong>Introductory offer:</strong> First 3 files free for new NZ clients. Get in touch to claim yours.
+    <div class="grid g4">
+      <div class="card"><h3>Pay per application</h3><p>Hand over files as they come in and pay only for what you send. Ideal for testing the waters or covering busy months.</p></div>
+      <div class="card"><h3>Dedicated loan processor</h3><p>A named team member who learns your systems, templates and preferences and works as an extension of your business.</p></div>
+      <div class="card"><h3>Virtual admin</h3><p>Diary and inbox support, CRM updates, client follow-ups, settlement tracking and the day-to-day jobs that eat your time.</p></div>
+      <div class="card"><h3>Paraplanning</h3><p>Research and file preparation so your advice documents are ready for you to review, sign off and send.</p></div>
     </div>
   </div>
 </section>
 
+<!-- ═════════ HOW IT WORKS ═════════ -->
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">How it works</div>
+      <h2>Up and running in three steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Book a free call</h3><p>We learn how you work, what's taking your time and where we can help most. No obligation.</p></div>
+      <div class="step"><h3>We set you up</h3><p>We agree the process, document your preferences and get access to the tools you already use.</p></div>
+      <div class="step"><h3>Hand off and grow</h3><p>Send us work as it arrives. Review the finished files, and use the time you've gained to see more clients.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ TIME ZONE ═════════ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="tz">
+      <div style="position:relative;z-index:1">
+        <div class="eyebrow" style="color:#FFC47A">Time-zone advantage</div>
+        <h2>Hand off at close of business. Pick up fresh in the morning.</h2>
+        <p>With our team spread across New Zealand, Australia and the Philippines, work keeps moving while you're off the clock — so you start the next day with files already progressed.</p>
+      </div>
+      <div class="tl" aria-label="Example day">
+        <div><b>4:30 pm NZ</b><span>You send the day's files across</span></div>
+        <div><b>Overnight</b><span>Processing and document prep continue</span></div>
+        <div><b>8:30 am NZ</b><span>Progress update and files ready to review</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ OFFICE ═════════ -->
+<section class="section alt" id="office">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">Our New Zealand office</div>
+      <h2>Real people, right here in Auckland</h2>
+      <p>Call, email or drop in by appointment. We're easy to reach.</p>
+    </div>
+    <div class="office">
+      <div class="office-card">
+        <span class="tag">🇳🇿 New Zealand office</span>
+        <h3>Brokers' BackOffice — Auckland</h3>
+        <ul class="contact-list">
+          <li>
+            <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><small>Address</small><address>125 Queen Street<br>Auckland 1010<br>New Zealand</address></div>
+          </li>
+          <li>
+            <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+            <!-- TODO: confirm NZ office number before publishing -->
+            <div><small>Phone</small><a href="tel:0800100017">0800 10 00 17</a></div>
+          </li>
+          <li>
+            <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+            <div><small>Email</small><a href="mailto:info@brokersbackoffice.com">info@brokersbackoffice.com</a></div>
+          </li>
+          <li>
+            <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><small>Hours</small>Monday – Friday, 8:30 am – 5:00 pm (NZ time)</div>
+          </li>
+        </ul>
+      </div>
+      <div class="map">
+        <iframe title="Map of 125 Queen Street, Auckland" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=125+Queen+Street,+Auckland+1010,+New+Zealand&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ FAQ ═════════ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="eyebrow">Questions</div>
+      <h2>Common questions from NZ advisers</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Do you understand New Zealand lending requirements?</summary><p>Yes. Our Auckland team works with NZ lenders and application requirements every day, and our processes are built around how New Zealand advisers operate. You stay responsible for your advice; we make sure the file is complete, accurate and ready for you.</p></details>
+      <details><summary>Will my clients know someone else is helping?</summary><p>Only if you want them to. Many advisers have us work behind the scenes; others introduce us as part of their team. It's your call.</p></details>
+      <details><summary>How is my clients' information kept secure?</summary><p>We work in the systems you already use, with controlled access and documented processes, and we treat personal information in line with the NZ Privacy Act 2020. Ask us for details on the call.</p></details>
+      <details><summary>Am I locked into a contract?</summary><p>No. You can start with a single application on a pay-per-application basis, then scale up to a dedicated team member if it suits you.</p></details>
+      <details><summary>What are your support hours?</summary><p>Our Auckland office is open Monday to Friday, 8:30 am to 5:00 pm NZ time, and the wider team keeps work moving outside those hours.</p></details>
+      <details><summary>What does it cost?</summary><p>It depends on the service and volume. Book a free call and we'll give you a clear, no-pressure quote.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ FINAL CTA ═════════ -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Ready to get your time back?</h2>
+    <p>Book a free, no-obligation call with our Auckland team.</p>
+    <div class="row-btns">
+      <a href="#contact" class="btn btn-primary">Send an enquiry →</a>
+      <a href="tel:0800100017" class="btn btn-ghost">📞 0800 10 00 17</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═════════ FOOTER ═════════ -->
 <footer>
-  <p>© 2026 Brokers BackOffice · <a href="https://brokersbackoffice.com">brokersbackoffice.com</a> · Sydney, Australia</p>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#top" class="brand" style="margin-bottom:14px" aria-label="Brokers' BackOffice — back to top"><img class="logo" src="img/logo-white.png" alt="Brokers' BackOffice" width="161" height="54" loading="lazy"></a>
+        <address>125 Queen Street, Auckland 1010, New Zealand<br><a href="tel:0800100017">0800 10 00 17</a> · <a href="mailto:info@brokersbackoffice.com">info@brokersbackoffice.com</a></address>
+      </div>
+      <nav class="foot-menu" aria-label="Footer">
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="#why">Why NZ</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#office">Our office</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact us</a></li>
+        </ul>
+      </nav>
+      <div><a href="https://brokersbackoffice.com">Visit our main website →</a></div>
+    </div>
+    <div class="copy">© <span id="yr">2026</span> Brokers' BackOffice. All rights reserved.</div>
+  </div>
 </footer>
 
+<script>
+(function () {
+  'use strict';
+  // Same endpoint the main site's contact form posts to
+  var CONTACT_API = 'https://zedplusfinance.com.au/API/BBO/Contact/';
+  var FALLBACK = 'info@brokersbackoffice.com';
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // ── Header menu: mobile toggle + highlight the section in view ──
+  var nav = document.querySelector('.nav');
+  var burger = document.getElementById('burger');
+  var links = document.querySelectorAll('#navLinks a[href^="#"]:not(.mob-cta)');
+
+  function setMenu(open) {
+    nav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  burger.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
+  document.querySelectorAll('#navLinks a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  window.addEventListener('resize', function () { if (window.innerWidth > 980) setMenu(false); });
+
+  if ('IntersectionObserver' in window) {
+    var map = {};
+    links.forEach(function (a) { var t = document.querySelector(a.getAttribute('href')); if (t) map[t.id] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        links.forEach(function (a) { a.classList.remove('active'); });
+        if (map[en.target.id]) map[en.target.id].classList.add('active');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(map).forEach(function (id) { io.observe(document.getElementById(id)); });
+  }
+
+  var form = document.getElementById('nzForm');
+  var btn = document.getElementById('submitBtn');
+  var errBox = document.getElementById('formError');
+
+  function val(id) { return document.getElementById(id).value.trim(); }
+  function mark(id, bad) { document.getElementById(id).closest('.field').classList.toggle('err', bad); return !bad; }
+
+  function validate() {
+    var ok = true;
+    ok = mark('fname', !val('fname')) && ok;
+    ok = mark('lname', !val('lname')) && ok;
+    ok = mark('email', !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val('email'))) && ok;
+    ok = mark('phone', val('phone').replace(/\D/g, '').length < 7) && ok;
+    return ok;
+  }
+
+  ['fname', 'lname', 'email', 'phone'].forEach(function (id) {
+    document.getElementById(id).addEventListener('input', function () { this.closest('.field').classList.remove('err'); });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errBox.className = 'form-status';
+    if (!validate()) { var f = form.querySelector('.err input'); if (f) f.focus(); return; }
+
+    // Honeypot: bots fill this in. Pretend success, send nothing.
+    if (val('website')) { show(); return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    var payload = {
+      fname: val('fname'), lname: val('lname'), email: val('email'), phone: val('phone'),
+      company: val('company'), service: document.getElementById('service').value,
+      message: val('message'), country: 'New Zealand', source: 'bbo-nz-landing'
+    };
+
+    fetch(CONTACT_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      show();
+    }).catch(function () {
+      // Don't claim success if it failed — a lost lead is worse than an error message.
+      btn.disabled = false;
+      btn.textContent = 'Send my enquiry';
+      errBox.className = 'form-status error';
+      errBox.innerHTML = 'Sorry, that didn’t go through. Please try again, or call <a href="tel:0800100017"><b>0800 10 00 17</b></a> or email <a href="mailto:' + FALLBACK + '"><b>' + FALLBACK + '</b></a>.';
+    });
+  });
+
+  function show() {
+    document.getElementById('formBody').style.display = 'none';
+    var s = document.getElementById('success');
+    s.style.display = 'block';
+    s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+})();
+</script>
 </body>
 </html>
